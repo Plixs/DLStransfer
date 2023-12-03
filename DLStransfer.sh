@@ -36,8 +36,17 @@ TrsfDecrypt() {
 	tfDK=$1
 	tfDiput=$2
 	tfDout=$3
-	TrsfOnShDef "decrypt -k $tfDK $tfDiput -o $tfDout"
+	TrsfOnShDef "decrypt -k "$tfDK" $tfDiput -o $tfDout"
+}
+
+# args={inputfile}
+TrsfDecryptOnDef() {
+	tfDiput=$1
+	echo -e "Type Key :"
+	read tdoKey
+
+	TrsfOnShDef "decrypt -k "$tdoKey" $tfDiput -o new_$tfDiput"
 }
 
 ###########main############
-#TrsfOnShDef "$1"
+# TrsfDecryptOnDef "$1"
